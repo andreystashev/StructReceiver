@@ -69,6 +69,19 @@ void MainWindow::createTable(int width,QString backgroundColor,QString color)
 }
 
 
+int trueSpeed(unsigned int speed){
+    int summ = 0;
+    int MSb = 512;
+    while(speed){
+        if(speed & 1){
+            summ+=MSb;
+        }
+        MSb/=2;
+        speed >>= 1;
+    }
+    return summ;
+}
+
 
 void MainWindow::fillTable(QByteArray *data)
 {
@@ -83,7 +96,7 @@ void MainWindow::fillTable(QByteArray *data)
     valueCells[6]->setNum(pDataUnpack->dataUnion.data.reserve1);
     valueCells[7]->setNum(pDataUnpack->dataUnion.data.dataOk);
     valueCells[8]->setNum(pDataUnpack->dataUnion.data.onLand);
-    valueCells[9]->setNum(pDataUnpack->dataUnion.data.speed * 512);
+    valueCells[9]->setNum(trueSpeed(pDataUnpack->dataUnion.data.speed));
     valueCells[10]->setNum(pDataUnpack->dataUnion.data.reserve2);
     valueCells[11]->setText(QString::number(pDataUnpack->dataUnion.data.matrix,2));
     valueCells[12]->setNum(pDataUnpack->dataUnion.data.ctrlBit);
