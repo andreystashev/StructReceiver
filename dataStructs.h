@@ -2,6 +2,9 @@
 #define DATASTRUCTS_H
 #include <QString>
 
+
+
+#pragma pack(push,1)
 struct DataStruct
 {
     int hour, min, sec; // время
@@ -20,7 +23,8 @@ struct DataStruct
         } data;
     } dataUnion;
     bool isCrashed;     // признак разрушения
-}__attribute__((packed));
+};
+#pragma pack(pop)
 
 
 QString nameMassive[] = {"Часы","Минуты","Секунды","Вес топлива, кг","слово данных","адрес (в 16-тиричном представлении)",
