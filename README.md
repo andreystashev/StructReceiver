@@ -13,7 +13,7 @@
 
 1. Клонируйте репозиторий:
 
-    - git clone https://github.com/andreystashev/udp_transmission.git
+    - git clone [https://github.com/andreystashev/udp_transmission.git](https://github.com/andreystashev/udp-transmission.git)
 
 
 2. Перейдите в директорию проекта:
